@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
+    <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.Swagger</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.Swagger</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Company>Samhammer AG</Company>
+    <Authors>Samhammer AG</Authors>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
