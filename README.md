@@ -1,4 +1,6 @@
-﻿## Samhammer.Swagger.Default
+﻿[![Build Status](https://travis-ci.com/SamhammerAG/Samhammer.Swagger.svg?branch=master)](https://travis-ci.com/SamhammerAG/Samhammer.Swagger)
+
+## Samhammer.Swagger.Default
 
 This providdes configuration for swagger with default endpoints for swagger spec and ui.
 It can be used in every web API project that is built with ASP.NET Core.
