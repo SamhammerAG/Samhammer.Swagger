@@ -1,4 +1,4 @@
-﻿namespace Samhammer.Swagger.Authentication
+﻿namespace Samhammer.Swagger.Authentication.Jwt
 {
     public class SwaggerAuthOptions
     {

@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
-namespace Samhammer.Swagger.Authentication
+namespace Samhammer.Swagger.Authentication.Jwt
 {
     public class ConfigureSwaggerUi : IConfigureOptions<SwaggerUIOptions>
     {

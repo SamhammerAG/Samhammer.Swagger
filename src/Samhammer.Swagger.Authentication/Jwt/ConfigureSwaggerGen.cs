@@ -5,7 +5,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Samhammer.Swagger.Authentication
+namespace Samhammer.Swagger.Authentication.Jwt
 {
     public class ConfigureSwaggerGen : IConfigureOptions<SwaggerGenOptions>
     {
