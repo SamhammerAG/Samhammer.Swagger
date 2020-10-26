@@ -39,8 +39,12 @@ namespace Samhammer.Swagger.Authentication.Guest
             swaggerGen.AddSecurityDefinition(apiKeyRef.Id, apiKeyScheme);
             swaggerGen.AddSecurityRequirement(new OpenApiSecurityRequirement { { apiKeyScheme, new string[] { } } });
 
-            swaggerGen.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
             swaggerGen.OperationFilter<SecurityRequirementsOperationFilter>(true, apiKeyScheme.Reference.Id);
+
+            if (!swaggerGen.OperationFilterDescriptors.Exists(f => f.Type == typeof(AppendAuthorizeToSummaryOperationFilter)))
+            {
+                swaggerGen.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
+            }
         }
     }
 }
