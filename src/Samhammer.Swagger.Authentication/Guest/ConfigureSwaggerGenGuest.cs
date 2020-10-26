@@ -10,6 +10,8 @@ namespace Samhammer.Swagger.Authentication.Guest
     {
         private SwaggerGuestOptions Options { get; }
 
+        private const string HeaderKey = "GuestID";
+
         public ConfigureSwaggerGenGuest(IOptions<SwaggerGuestOptions> options)
         {
             Options = options.Value;
@@ -33,7 +35,7 @@ namespace Samhammer.Swagger.Authentication.Guest
                 Reference = apiKeyRef,
                 Type = SecuritySchemeType.ApiKey,
                 In = ParameterLocation.Header,
-                Name = "X-GuestSession",
+                Name = HeaderKey,
             };
 
             swaggerGen.AddSecurityDefinition(apiKeyRef.Id, apiKeyScheme);

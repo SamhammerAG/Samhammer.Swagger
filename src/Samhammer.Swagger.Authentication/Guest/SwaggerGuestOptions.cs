@@ -2,6 +2,11 @@
 {
     public class SwaggerGuestOptions
     {
-        public bool Enabled { get; set; } = true;
+        public bool Enabled { get; set; }
+
+        public SwaggerGuestOptions()
+        {
+            Enabled = true;
+        }
     }
 }
