@@ -27,13 +27,15 @@ public void Configure(IApplicationBuilder app)
 
 ## Samhammer.Swagger.Authentication
 
-This providdes configuration for swagger with authentication by oauth2 codeflow or bearer token.
+This providdes configuration for swagger with authentication by oauth2 codeflow or bearer token and authentication with guestid by Samhammer.Authentication.
 It can be used in every web API project that is built with ASP.NET Core.
 
 #### How to add this to your project:
 - reference this package to your project: https://www.nuget.org/packages/Samhammer.Swagger.Authentication/
 
 #### How to use:
+
+### JWT Authentication
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -49,7 +51,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-For usage of auth2 codeflow setup settings in appsettings.json:
+For setup of auth2 codeflow add this to appsettings.json:
 ```js
   "SwaggerAuthOptions": {
     "ClientId": "<<ClientId>>",
@@ -58,6 +60,21 @@ For usage of auth2 codeflow setup settings in appsettings.json:
   },
 ```
 
+### Guest Authentication
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSwaggerGuest(Configuration);
+}
+```
+
+For override of default settings (enabled true) add this to appsettings.json:
+```js
+  "SwaggerGuestOptions": {
+    "Enabled": false
+  }
+```
 
 ## Samhammer.Swagger.Versioning
 
