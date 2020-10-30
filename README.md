@@ -61,7 +61,7 @@ For setup of auth2 codeflow add this to appsettings.json:
 ```
 
 ### Guest Authentication
-This provides swagger support for GuestAuthentication from https://github.com/SamhammerAG/Samhammer.Authentication#guest-authentication
+For Authenticaton by https://github.com/SamhammerAG/Samhammer.Authentication#guest-authentication
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
