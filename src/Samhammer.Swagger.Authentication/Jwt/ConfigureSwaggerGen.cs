@@ -5,7 +5,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Samhammer.Swagger.Authentication
+namespace Samhammer.Swagger.Authentication.Jwt
 {
     public class ConfigureSwaggerGen : IConfigureOptions<SwaggerGenOptions>
     {
@@ -18,9 +18,6 @@ namespace Samhammer.Swagger.Authentication
 
         public void Configure(SwaggerGenOptions swaggerGen)
         {
-            swaggerGen.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
-            swaggerGen.OperationFilter<SecurityRequirementsOperationFilter>();
-
             if (string.IsNullOrWhiteSpace(Options.AuthUrl) || string.IsNullOrWhiteSpace(Options.AccessTokenUrl))
             {
                 swaggerGen.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
@@ -46,6 +43,13 @@ namespace Samhammer.Swagger.Authentication
                         },
                     },
                 });
+            }
+
+            swaggerGen.OperationFilter<SecurityRequirementsOperationFilter>();
+
+            if (!swaggerGen.OperationFilterDescriptors.Exists(f => f.Type == typeof(AppendAuthorizeToSummaryOperationFilter)))
+            {
+                swaggerGen.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
             }
         }
     }
