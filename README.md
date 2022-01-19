@@ -91,6 +91,7 @@ It can be used in every web API project that is built with ASP.NET Core.
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddApiVersioning(...);
+    services.AddSwaggerGen();
     services.AddSwaggerVersionedApi();
 }
 

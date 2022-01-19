@@ -1,23 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <CodeAnalysisRuleSet>..\stylecop.ruleset</CodeAnalysisRuleSet>
+    <Authors>Samhammer AG</Authors>
+    <Company>Samhammer AG</Company>
     <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.Swagger</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.Swagger</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Company>Samhammer AG</Company>
-    <Authors>Samhammer AG</Authors>
-    <Version>1.0.2</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Description>swagger configuration for versioned api in .NET Core web projects</Description>
   </PropertyGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.1" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.376">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 </Project>
