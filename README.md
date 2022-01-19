@@ -104,12 +104,4 @@ public void Configure(IApplicationBuilder app)
 ## Contribute
 
 #### How to publish package
-- set package version in Samhammer.Swagger.Default.csproj
-- set package version in Samhammer.Swagger.Authentication.csproj
-- set package version in Samhammer.Swagger.Versioning.csproj
-- create git tag
-- dotnet pack -c Release
-- nuget push .Samhammer.Swagger.Default\bin\Release\Samhammer.Swagger.Default.*.nupkg NUGET_API_KEY -src https://api.nuget.org/v3/index.json
-- nuget push .\Samhammer.Swagger.Authentication\bin\Release\Samhammer.Swagger.Authentication.*.nupkg NUGET_API_KEY -src https://api.nuget.org/v3/index.json
-- nuget push .\Samhammer.Swagger.Versioning\bin\Release\Samhammer.Swagger.Versioning.*.nupkg NUGET_API_KEY -src https://api.nuget.org/v3/index.json
-- (optional) nuget setapikey NUGET_API_KEY -source https://api.nuget.org/v3/index.json
+- Create a tag and let the github action do the publishing for you
