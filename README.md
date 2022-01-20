@@ -1,6 +1,6 @@
 ﻿[![Build Status](https://travis-ci.com/SamhammerAG/Samhammer.Swagger.svg?branch=master)](https://travis-ci.com/SamhammerAG/Samhammer.Swagger)
 
-## Samhammer.Swagger.Default
+## Samhammer.Swagger.Default [OBSOLETE]
 
 This providdes configuration for swagger with default endpoints for swagger spec and ui.
 It can be used in every web API project that is built with ASP.NET Core.
@@ -15,6 +15,21 @@ public void ConfigureServices(IServiceCollection services)
 {
     services.AddSwaggerGen();
     services.AddSwaggerDefaultApi();
+}
+
+public void Configure(IApplicationBuilder app)
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+```
+
+#### Remove package & change to default configuration:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSwaggerGen();
 }
 
 public void Configure(IApplicationBuilder app)
@@ -91,6 +106,7 @@ It can be used in every web API project that is built with ASP.NET Core.
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddApiVersioning(...);
+    services.AddSwaggerGen();
     services.AddSwaggerVersionedApi();
 }
 

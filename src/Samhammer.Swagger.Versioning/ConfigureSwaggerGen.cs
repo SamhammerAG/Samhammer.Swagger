@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
@@ -10,9 +11,12 @@ namespace Samhammer.Swagger.Versioning
     {
         private IApiVersionDescriptionProvider Provider { get; }
 
-        public ConfigureSwaggerGen(IApiVersionDescriptionProvider provider)
+        private IWebHostEnvironment HostingEnv { get; }
+
+        public ConfigureSwaggerGen(IApiVersionDescriptionProvider provider, IWebHostEnvironment hostingEnv)
         {
             Provider = provider;
+            HostingEnv = hostingEnv;
         }
 
         public void Configure(SwaggerGenOptions options)
@@ -24,6 +28,7 @@ namespace Samhammer.Swagger.Versioning
                 var info = new OpenApiInfo
                 {
                     Version = description.ApiVersion.ToString(),
+                    Title = HostingEnv.ApplicationName,
                     Description = description.IsDeprecated ? "This API version has been deprecated." : string.Empty,
                 };
 
