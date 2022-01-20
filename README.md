@@ -1,5 +1,3 @@
-﻿[![Build Status](https://travis-ci.com/SamhammerAG/Samhammer.Swagger.svg?branch=master)](https://travis-ci.com/SamhammerAG/Samhammer.Swagger)
-
 ## Samhammer.Swagger.Default [OBSOLETE]
 
 This providdes configuration for swagger with default endpoints for swagger spec and ui.
