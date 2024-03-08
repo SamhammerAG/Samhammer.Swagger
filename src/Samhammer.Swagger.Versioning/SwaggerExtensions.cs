@@ -9,11 +9,13 @@ namespace Samhammer.Swagger.Versioning
     {
         public static void AddSwaggerVersionedApi(this IServiceCollection services)
         {
-            services.AddVersionedApiExplorer(o =>
-            {
-                o.GroupNameFormat = "'v'VVV";
-                o.SubstituteApiVersionInUrl = true;
-            });
+            services.AddApiVersioning() // Core API versioning services with support for Minimal APIs
+                .AddMvc() // API version-aware extensions for MVC Core with controllers (not full MVC)
+                .AddApiExplorer(o =>
+                {
+                    o.GroupNameFormat = "'v'VVV";
+                    o.SubstituteApiVersionInUrl = true;
+                }); // API version-aware API Explorer extensions
 
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerGen>();
             services.AddTransient<IConfigureOptions<SwaggerUIOptions>, ConfigureSwaggerUi>();

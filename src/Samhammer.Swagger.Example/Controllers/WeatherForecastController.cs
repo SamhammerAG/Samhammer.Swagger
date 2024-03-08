@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Samhammer.Swagger.Example.Controllers
 {
@@ -38,11 +39,11 @@ namespace Samhammer.Swagger.Example.Controllers
         public IEnumerable<WeatherForecast> GetV2()
         {
             return Enumerable.Range(1, 1).Select(index => new WeatherForecast
-                {
-                    Date = DateTime.Now.AddDays(index),
-                    TemperatureC = Random.Shared.Next(-20, 55),
-                    Summary = Summaries[Random.Shared.Next(Summaries.Length)],
-                })
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)],
+            })
                 .ToArray();
         }
     }
