@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Asp.Versioning;
 using Samhammer.Swagger.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);
