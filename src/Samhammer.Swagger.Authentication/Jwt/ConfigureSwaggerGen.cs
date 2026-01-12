@@ -1,20 +1,15 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.Filters;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Samhammer.Swagger.Authentication.Jwt
 {
-    public class ConfigureSwaggerGen : IConfigureOptions<SwaggerGenOptions>
+    public class ConfigureSwaggerGen(IOptions<SwaggerAuthOptions> options) : IConfigureOptions<SwaggerGenOptions>
     {
-        private SwaggerAuthOptions Options { get; }
-
-        public ConfigureSwaggerGen(IOptions<SwaggerAuthOptions> options)
-        {
-            Options = options.Value;
-        }
+        private SwaggerAuthOptions Options { get; } = options.Value;
 
         public void Configure(SwaggerGenOptions swaggerGen)
         {

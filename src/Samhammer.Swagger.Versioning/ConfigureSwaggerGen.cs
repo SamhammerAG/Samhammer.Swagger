@@ -2,22 +2,16 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Samhammer.Swagger.Versioning
 {
-    public class ConfigureSwaggerGen : IConfigureOptions<SwaggerGenOptions>
+    public class ConfigureSwaggerGen(IApiVersionDescriptionProvider provider, IWebHostEnvironment hostingEnv) : IConfigureOptions<SwaggerGenOptions>
     {
-        private IApiVersionDescriptionProvider Provider { get; }
+        private IApiVersionDescriptionProvider Provider { get; } = provider;
 
-        private IWebHostEnvironment HostingEnv { get; }
-
-        public ConfigureSwaggerGen(IApiVersionDescriptionProvider provider, IWebHostEnvironment hostingEnv)
-        {
-            Provider = provider;
-            HostingEnv = hostingEnv;
-        }
+        private IWebHostEnvironment HostingEnv { get; } = hostingEnv;
 
         public void Configure(SwaggerGenOptions options)
         {
